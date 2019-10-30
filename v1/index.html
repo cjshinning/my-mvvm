@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue双向数据绑定</title>
+</head>
+<body>
+    <h1 id="name">{{name}}</h1>
+    <script src="js/observer.js"></script>
+    <script src="js/watcher.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        var ele = document.querySelector('#name');
+        var selfVue = new SelfVue({
+            name: 'hello world'
+        }, ele, 'name');
+
+        window.setTimeout(function(){
+            console.log('name值改变了');
+            selfVue.name = 'canfoo';
+        },2000)
+
+
+
+    // var Book = {
+    //     name: 'Vue权威指南'
+    // };
+    // console.log(Book.name);
+
+    // var Book = {};
+    // var name = '';
+    // Object.defineProperty(Book, 'name', {
+    //     set: function(value){
+    //         name = value;
+    //         console.log('你取了一个书名叫做' + value);
+    //     },
+    //     get: function(){
+    //         return '《' + name + '》';
+    //     }
+    // })
+
+    // Book.name = 'Vue权威指南';
+    // console.log(Book.name);
+    </script>
+</body>
+</html>
